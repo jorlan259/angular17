@@ -1,3 +1,6 @@
+/* eslint-disable max-len */
+/* eslint-disable quotes */
+/* eslint-disable @typescript-eslint/naming-convention */
 export const menu = [
     {
         "id": 1,
