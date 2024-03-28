@@ -11,8 +11,12 @@
       [fGroup]="form"
       controlName="description"
     />
-    <text [label]="'Estado'" placeholder="" [fGroup]="form" controlName="state" />
-  
+    <text [label]="'Alérgenos'" placeholder="" [fGroup]="form" controlName="allergens" />
+    <text [label]="'Precio'" placeholder="" [fGroup]="form" controlName="price" />
+
+    <input type="file" (change)="onFileChange($event)" name="file" accept="img" >
+    <br>
+    <br>
     <button type="submit" class="submitButton" (click)="saveData()">
       Enviar
     </button>

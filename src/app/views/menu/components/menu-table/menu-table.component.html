@@ -1,39 +1,59 @@
 
 
-  <div class="w-full grid grid-cols-4 gap-3">
 
-    @for (menu of menus; track menu) {
-
-    <div
-      class="relative col-span-1 h-80 shadow bg-slate-200 rounded-md flex flex-col overflow-hidden"
-    >
-  
-      <div class="w-full h-full">
-        <img
-          srcset="{{menu.picture}}"
-          class="w-full h-full object-cover"
-          alt=""
-        />
-      </div>
+    <div class="w-full grid grid-cols-4 gap-8">
+      @for (menu of menus; track menu) {
       <div
-        class="absolute w-full h-full top-0 left-0 bg-gradient-to-b from-slate-50/0 to-slate-900/90 p-2 flex items-end"
-      >
-      
-        <div class="flex flex-col gap-2">
+        class="relative col-span-1 h-80 shadow bg-slate-200 rounded-md flex flex-col">
 
-          <h5 class="text-white font-bold">{{menu.description}}</h5>
+        <div
+          class="relative col-span-1 h-80 shadow bg-slate-200 rounded-md flex flex-col"
+        >
+          <div class="flex flex-col gap-1">
+            <div class="font-medium text-md">{{ menu.name }}</div>
+            <h5 class="text-white font-bold"> </h5>
+            <div
+            class="w-full h-full flex flex-col justify-center items-center gap-3"
+          >
+          <img
+          class="w-24 h-24 rounded-full"
+          srcset="{{menu.picture}}"
+          alt="{{ menu.name }}"
+        />
+
+          </div>
 
           <p class="text-white text-wrap text-sm">
-            {{ menu.name }}
-            <button (click)="(null)" class="text-cyan-500 text-sm">
-              Ver Detalles
-            </button>
+          {{menu.description}}
           </p>
+            <p class="text-black text-wrap text-sm">
+
+             Alérgenos : <br>
+             <p class="text-white text-wrap text-sm">
+             {{ menu.allergens}}
+             <br>
+
+             <p class="text-black text-wrap text-sm">
+
+              Precio : {{ menu.price}} $
+              <p class="text-white text-wrap text-sm">
+                <button (click)="(null)" class="text-blue-500 text-sm">
+                  Ver Detalles
+                </button>
+            </p>
+
+            @for (item of menu.ingredients; track item) {
+              <p class="text-white text-wrap text-sm">
+              {{item.name}}
+            </p>
+            }
+
+          </div>
+
         </div>
-    
+
       </div>
-    
+    }
     </div>
-  }
-  </div>
+
 

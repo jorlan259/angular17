@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
@@ -19,7 +21,7 @@ type FormData = {
 })
 export class MenuFormComponent {
   @Output() addData: EventEmitter<MenusInterface> = new EventEmitter<MenusInterface>();
-
+  base64String : string = '' ;
   form: FormGroup<FormData> = new FormGroup<FormData>({
     id: new FormControl({ value: 0, disabled: true }),
     name: new FormControl(),
@@ -38,7 +40,24 @@ export class MenuFormComponent {
 
   saveData(): void {
     const data = this.form.getRawValue();
+    data.picture = this.base64String;
     this.addData.next(data as MenusInterface);
+  }
+
+  onFileChange(event: any){
+
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onloadend = () => {
+  this.base64String = reader.result as string ;
+  console.log(this.base64String);
+  };
+
+  if (file){
+  reader.readAsDataURL(file);
+  }
+
   }
 
 }

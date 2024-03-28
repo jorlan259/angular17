@@ -28,6 +28,12 @@ const routes: Routes = [
         resolve: { menus: resolverMenuResolver }
     },
     {
+      path: 'menu/:id',
+      loadComponent: () => import('../../views/menu/menu.component').then((m) => m.MenusComponent)  ,
+      providers: [MenusServices],
+      resolve: { menus: resolverMenuResolver }
+  },
+    {
         path: 'orders',
         loadComponent: () => import('../../views/orders/orders.component'),
     },

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable quotes */
-import { MenusInterface } from "@interfaces/menus/menus";
-import { MenusResponse } from "@model/menus/menus-response";
+import {  MenusInterface } from "@interfaces/menus/menus";
+import {  MenusResponse } from "@model/menus/menus-response";
 
 export class MenusMapper {
 

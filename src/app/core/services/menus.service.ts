@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable quotes */
 import { HttpClient } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
@@ -14,7 +15,6 @@ type BaseResponse = {
 
 @Injectable()
 export class MenusServices {
-
     private httpClient = inject(HttpClient);
 
     private allMenusSubject: BehaviorSubject<MenusInterface[]> = new BehaviorSubject<MenusInterface[]>([]);
@@ -42,6 +42,7 @@ export class MenusServices {
     }
 
     postNewMenu(bodyRequest: MenusInterface): Observable<boolean> {
+
         return this.httpClient.post(this.apiUrl + '/menu', MenusMapper.toJson(bodyRequest))
             .pipe(
                 tap((response) => console.log(response)),
