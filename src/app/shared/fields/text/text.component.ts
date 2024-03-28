@@ -14,7 +14,7 @@ enum InputType {
 @Component({
   selector: 'text',
   standalone: true,
-  imports: [CommonModule, FieldBaseComponent, ReactiveFormsModule, UpperCaseDirective],
+  imports: [CommonModule, FieldBaseComponent, ReactiveFormsModule,UpperCaseDirective],
   templateUrl: './text.component.html',
   styleUrl: './text.component.scss'
 })
@@ -33,7 +33,5 @@ export class TextComponent {
   controlName = input<string>();
   fGroup = input<FormGroup>();
   control = input<FormControl<unknown>>();
-
-  activeUpercase = input<boolean>();
-
+  activeUpperCase = input<boolean>();
 }

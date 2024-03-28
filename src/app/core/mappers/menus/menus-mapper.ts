@@ -18,4 +18,17 @@ export class MenusMapper {
             picture: data.imagen_plato,
         };
     }
+    static toJson(data: MenusInterface): MenusResponse {
+        return {
+            id: data.id,
+            nombre_plato: data.name,
+            descripcion_plato : data.description,
+            id_categoria : data.id_category,
+            precio_venta : data.price,
+            costo_produccion : data.production_cost,
+            ingredientes : data.ingredients,
+            alergenos : data.allergens,
+            imagen_plato : data.picture
+        };
+    }
 }

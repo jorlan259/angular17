@@ -1,0 +1,19 @@
+<div class="max-w-sm mx-auto px-1 py-2 rounded-md">
+    <text
+      [label]="'Nombre'"
+      placeholder="Ingrese el nombre del Menu"
+      [fGroup]="form"
+      controlName="name"
+    />
+    <text
+      [label]="'Descripcion'"
+      placeholder="Ingrese la descripcion del Menu"
+      [fGroup]="form"
+      controlName="description"
+    />
+    <text [label]="'Estado'" placeholder="" [fGroup]="form" controlName="state" />
+  
+    <button type="submit" class="submitButton" (click)="saveData()">
+      Enviar
+    </button>
+  </div>

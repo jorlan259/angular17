@@ -6,7 +6,7 @@ export const routes: Routes = [
     {
         path: 'dashboard',
         loadComponent: () => import('./pages/dashboard/dashboard.component'),
-        canActivate: [securityGuard],
+        // canActivate: [securityGuard],
         loadChildren: () => import('./pages/dashboard/dashboard.routes')
     },
     {
@@ -19,7 +19,7 @@ export const routes: Routes = [
     },
     {
         path: '',
-        redirectTo: 'sign-in',
+        redirectTo: 'dashboard',
         pathMatch: 'full'
     },
     {

@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { CategoriesServices } from '@service/categories.service';
 import { resolverCategoryResolver } from '../../core/resolvers/resolver-category.resolver';
+import { MenusServices } from '@service/menus.service';
+import { resolverMenuResolver } from '../../core/resolvers/resolver-menu.resolver';
 
 const routes: Routes = [
     {
@@ -21,7 +23,9 @@ const routes: Routes = [
     },
     {
         path: 'menu',
-        loadComponent: () => import('../../views/menu/menu.component'),
+        loadComponent: () => import('../../views/menu/menu.component').then((m) => m.MenusComponent)  ,
+        providers: [MenusServices],
+        resolve: { menus: resolverMenuResolver }
     },
     {
         path: 'orders',
