@@ -3,6 +3,8 @@ import { CategoriesServices } from '@service/categories.service';
 import { resolverCategoryResolver } from '../../core/resolvers/resolver-category.resolver';
 import { MenusServices } from '@service/menus.service';
 import { resolverMenuResolver } from '../../core/resolvers/resolver-menu.resolver';
+import { securityGuard } from '@guard/security.guard';
+import { menuSecurityGuard } from '@guard/menu-security.guard';
 
 const routes: Routes = [
     {
@@ -25,7 +27,8 @@ const routes: Routes = [
         path: 'menu',
         loadComponent: () => import('../../views/menu/menu.component').then((m) => m.MenusComponent)  ,
         providers: [MenusServices],
-        resolve: { menus: resolverMenuResolver }
+        resolve: { menus: resolverMenuResolver },
+        canActivate : [menuSecurityGuard]
     },
     {
       path: 'menu/:id',
